@@ -1,8 +1,11 @@
 {
-  "buildCommand": "",
-  "outputDirectory": "public",
-  "framework": null,
-  "rewrites": [
-    { "source": "/api/submit", "destination": "/api/submit" }
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "api/submit.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/submit", "dest": "/api/submit.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
